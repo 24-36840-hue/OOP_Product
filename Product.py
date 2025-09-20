@@ -25,7 +25,7 @@ class Product:
                     product.quantity = quantity
                 if price is not None:
                     product.price = price
-                return "Product updated successfully"
+                return "Product information updated successfully"
         return "Product not found"
     
     @classmethod
@@ -58,27 +58,12 @@ class Order:
                     return "Insufficient stock"
         return "Product not found"
     
-product1 = Product.add_product("Laptop","Electronics", 50, 1000, "Intel")
-product2 = Product.add_product("T-shirt", "Clothing", 50, 150, "H&M") 
-product3 = Product.add_product("GPU", "Electronics", 20, 10000, "Ryzen")
-print("After adding products: ") 
-Product.display_inventory()
-print("")
-
-Product.update_product(1, quantity=10, price=700)
-print("After updating product 1: ")
-Product.display_inventory()
-print("")
-
-Product.delete_product(2)
-print("After deleting product 2: ")
-Product.display_inventory()
-print("")
-
+print(Product.add_product("Smartphone", "Electronics", 30, 500, "Samsung"))
+print(Product.add_product("T-shirt", "Clothing", 40, 200, "Levis"))
+print(Product.add_product("Blender", "Home Appliances", 20, 150, "Philips"))
+print(Product.update_product(1, quantity=45, price=950))
+print(Product.delete_product(2))
 order1 = Order(order_id=1, product_id=1, quantity=2, customer_info="John Doe")
 print(order1.place_order())
-
-print("")
-print("Inventory Summary")
+print("\nCurrent Inventory: ")
 Product.display_inventory()
-
